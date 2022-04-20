@@ -1,8 +1,7 @@
-const ModalWh =  () => {
+import { StyledModal } from './style'
 
-    return (
-        <div>Hello Modal</div>
-    )
+const ModalWh = () => {
+  return <StyledModal>Hello Modal</StyledModal>
 }
 
 export default ModalWh
