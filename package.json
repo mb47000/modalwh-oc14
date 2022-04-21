@@ -1,7 +1,9 @@
 {
   "name": "modalwh-oc14",
-  "version": "0.2.0",
-  "dependencies": {},
+  "version": "0.2.1",
+  "dependencies": {
+    "focus-trap-react": "^8.9.2"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
