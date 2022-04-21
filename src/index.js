@@ -1,11 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { ModalWh } from './lib'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import GlobalStyle from './GlobalStyle'
+import App from './App'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'))
+
 root.render(
   <React.StrictMode>
-    <ModalWh />
+    <GlobalStyle />
+    <App />
   </React.StrictMode>
-);
-
+)
