@@ -1,6 +1,6 @@
 {
   "name": "modalwh-oc14",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "dependencies": {
     "focus-trap-react": "^8.9.2"
   },
