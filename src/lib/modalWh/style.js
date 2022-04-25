@@ -6,24 +6,27 @@ export const StyledModal = styled.div`
   left: 0;
   width: 100%;
   height: 100vh;
-  background: ${(props) => props.background || 'rgba(0, 0, 0, 0.75)'};
+  background: rgba(0, 0, 0, 0.75);
   display: flex;
   justify-content: center;
   align-items: center;
+  ${(props) => props.customStyle};
 `
 
 export const StyledModalContainer = styled.div`
-  background: ${(props) => props.background || 'rgb(255, 255, 255)'};
-  border-radius: ${(props) => props.borderRadius || '5px'};
-  width: ${(props) => props.width || '90%'};
-  max-width: ${(props) => props.maxWidth || '400px'};
-  padding: ${(props) => props.padding || '38px'};
+  background: rgb(255, 255, 255);
+  border-radius: 5px;
+  width: 90%;
+  max-width: 400px;
+  padding: 38px;
   position: relative;
+  ${(props) => props.customStyle};
 `
 
 export const StyledModalContent = styled.div`
-  text-align: ${(props) => props.textAlign || 'center'};
-  background: ${(props) => props.background || 'inherit'};
+  text-align: center;
+  background: inherit;
+  ${(props) => props.customStyle};
 `
 export const StyledCloseButton = styled.a`
   position: absolute;
@@ -54,4 +57,6 @@ export const StyledCloseButton = styled.a`
   &:after {
     transform: rotate(-45deg);
   }
+
+  ${(props) => props.customStyle};
 `

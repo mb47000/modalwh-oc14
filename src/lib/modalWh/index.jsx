@@ -7,11 +7,13 @@ import {
 import FocusTrap from 'focus-trap-react'
 import React, { useEffect, useRef } from 'react'
 
+/**
+ * Close Modal if clicked on outside of the container
+ * @param {React.Component} ref The container of the modal
+ * @param {function} setModalState The function to update the modal state.
+ */
 const useOutsideClose = (ref, setModalState) => {
   useEffect(() => {
-    /**
-     * Close Modal if clicked on outside of the container
-     */
     function handleClickOutside(event) {
       if (ref.current && !ref.current.contains(event.target)) {
         setModalState(false)
@@ -26,6 +28,16 @@ const useOutsideClose = (ref, setModalState) => {
   }, [ref, setModalState])
 }
 
+/**
+ * A simple React Modal component, easy to customize
+ * @component
+ * @param {any} children The content of the modal, put anything you want
+ * @param {boolean} modalState The state of the modal, true for show, false for hide.
+ * @param {function} setModalState The function to update the modal state.
+ * @param {Object} modalStyle Custom style css for the different part of the modal, object shape: {main: {}, container: {}, content: {}, customCloseButton: {}}.
+ * @param {HtmlElement|ReactComponent} customCloseButton If you want to pass a personalized close button.
+ * @returns {React.Component} React Modal component
+ */
 const ModalWh = ({
   children,
   modalState,
@@ -39,16 +51,22 @@ const ModalWh = ({
   return (
     <>
       {modalState && (
-        <StyledModal>
+        <StyledModal customStyle={modalStyle?.main}>
           <FocusTrap>
-            <StyledModalContainer ref={containerRef}>
+            <StyledModalContainer
+              ref={containerRef}
+              customStyle={modalStyle?.container}
+            >
               {customCloseButton || (
                 <StyledCloseButton
                   onClick={() => setModalState(false)}
                   tabIndex="0"
+                  customStyle={modalStyle?.closeButton}
                 />
               )}
-              <StyledModalContent>{children}</StyledModalContent>
+              <StyledModalContent customStyle={modalStyle?.content}>
+                {children}
+              </StyledModalContent>
             </StyledModalContainer>
           </FocusTrap>
         </StyledModal>
