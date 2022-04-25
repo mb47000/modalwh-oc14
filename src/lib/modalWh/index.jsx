@@ -6,6 +6,7 @@ import {
 } from './style'
 import FocusTrap from 'focus-trap-react'
 import React, { useEffect, useRef } from 'react'
+import PropTypes from 'prop-types'
 
 /**
  * Close Modal if clicked on outside of the container
@@ -35,7 +36,7 @@ const useOutsideClose = (ref, setModalState) => {
  * @param {boolean} modalState The state of the modal, true for show, false for hide.
  * @param {function} setModalState The function to update the modal state.
  * @param {Object} modalStyle Custom style css for the different part of the modal, object shape: {main: {}, container: {}, content: {}, customCloseButton: {}}.
- * @param {HtmlElement|ReactComponent} customCloseButton If you want to pass a personalized close button.
+ * @param {HtmlElement|ReactComponent} customCloseButton If you want to pass a personalized React component for close button.
  * @returns {React.Component} React Modal component
  */
 const ModalWh = ({
@@ -73,6 +74,19 @@ const ModalWh = ({
       )}
     </>
   )
+}
+
+ModalWh.propTypes = {
+  modalState: PropTypes.bool.isRequired,
+  setModalState: PropTypes.func.isRequired,
+  customCloseButton: PropTypes.element,
+  modalStyle: PropTypes.shape({
+    main: PropTypes.string,
+    container: PropTypes.string,
+    content: PropTypes.string,
+    closeButton: PropTypes.string,
+  }),
+  children: PropTypes.any,
 }
 
 export default ModalWh

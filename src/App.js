@@ -3,9 +3,7 @@ import { useState } from 'react'
 
 const App = () => {
   const modalStyle = {
-    main: {
-      background: 'red',
-    },
+    main: `background: red`,
     container: `
       border-radius: 0;
       height: 300px;
