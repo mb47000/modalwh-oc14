@@ -1,6 +1,14 @@
 {
   "name": "modalwh-oc14",
-  "version": "1.0.0",
+  "author": "Michel Brousse",
+  "description": "A simple and customizable modal component for react",
+  "keyword": [
+    "react",
+    "modal",
+    "component",
+    "modalwh"
+  ],
+  "version": "1.1.0",
   "dependencies": {
     "focus-trap-react": "^8.9.2"
   },
